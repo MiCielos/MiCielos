@@ -1,0 +1,53 @@
+Variables:
+	{kit} = true
+command /ukit [<text>] [<text>]:
+	permission: kity.ustaw
+	permission message: &4&lNie masz dostepu do tej komendy!
+	trigger:
+		if arg 1 is not "on" or "off":
+			send player title "&8* &f&lKITY &8*" with subtitle "&8» &e&lBledny Argument!" for 5 seconds
+			send ""
+			send "&8&m--------&8[ &8» &f&lKITY &8« &8]&8&m--------"
+			send ""
+			send "   &8» &7Komendy Na &6Kit <ON> <OFF> "
+			send ""
+			send " &8» &7/ukit &6<ON> <OFF>"
+			send ""
+			send "&8&m--------&8[ &8» &f&lKITY &8« &8]&8&m--------"
+			send ""
+		if arg 1 is "on":
+			set {kit} to true
+			loop 100 times:
+				broadcast " "
+			send all players title "&8* &f&lKITY &8*" with subtitle "&8» &7Zostaly &e&lWLACZONE" for 5 seconds
+			broadcast " "
+			broadcast "&8&m--------&8[ &8» &f&lKITY &8« &8]&8&m--------"
+			broadcast " "
+			broadcast "  &8• &7Specjalne zestawy zostaly &aWLACZONE!"
+			broadcast "  &8• &7Zestawy Zostaly Pomyslnie &aWLACZONE!"
+			broadcast " "
+			broadcast "&8&m--------&8[ &8» &f&lKITY &8« &8]&8&m--------"
+		if arg 1 is "off":
+			set {kit} to false
+			loop 100 times:
+				broadcast " "
+			send all players title "&8* &f&lKITY &8*" with subtitle "&8» &7Zostaly &4&lWYLACZONE" for 5 seconds
+			broadcast " "
+			broadcast "&8&m--------&8[ &8» &f&lKITY &8« &8]&8&m--------"
+			broadcast " "
+			broadcast "  &8• &7Specjalne zestawy zostaly &cWYLACZONE!"
+			broadcast "  &8• &7Zestawy Zostaly Pomyslnie &cWYLACZONE!"
+			broadcast " "
+			broadcast "&8&m--------&8[ &8» &f&lKITY &8« &8]&8&m--------"
+On command:
+	If command is "kit" or "kity" or "zestaw" or "zestawy" or "ekits" or "kits" or "essentials:kit" or "essentials:ekit" or "essentials:ekits" or "essentials:kits":
+		If {kit} is false:
+			Cancel event
+			send ""
+			send "&8&m--------&8[ &8» &f&lKITY &8« &8]&8&m--------"
+			send ""		
+			send "   &8• &7Przepraszamy Kity Wyłączone!"
+			send ""
+			send "&8&m--------&8[ &8» &f&lKITY &8« &8]&8&m--------"
+			send ""			
+			stop
